@@ -5,15 +5,15 @@ Joey Sonius
 A function to validate a scheme against an object. The object is allowed to have additional properties and the validator does not care about the order of the properties. Does not support child datatype definitions.
 */
 
-function isValid(scheme, object){
+function isValid(scheme, object){ //Checks if an object has all the correct properties with types of a scheme.
    const propertyNames = Object.getOwnPropertyNames(scheme);
    let isvalid = true;
-   for (let i = 0; i < propertyNames.length && isvalid; i++) { //stop the loop as soon we know the result is invalid
-      if(scheme[propertyNames[i]] != typeof object[propertyNames[i]]){ //
+   for (let i = 0; i < propertyNames.length && isvalid; i++) { //stop the loop as soon we know the result is invalid.
+      if(scheme[propertyNames[i]] != typeof object[propertyNames[i]]){ //check if the datatype matches the property.
          if(scheme[propertyNames[i]] == 'array'){ //typeof does not support the Array datatype. So this additional statement is added for Array's.
             isvalid = Array.isArray(object[propertyNames[i]]);
          } else {
-         isvalid = false;
+            isvalid = false;
          }
       }
    }
