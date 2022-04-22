@@ -6,7 +6,7 @@ A function to validate a scheme against an object. The object is allowed to have
 */
 
 function isValid(scheme, object){
-   let propertyNames = Object.getOwnPropertyNames(scheme);
+   const propertyNames = Object.getOwnPropertyNames(scheme);
    let isvalid = true;
    for (let i = 0; i < propertyNames.length && isvalid; i++) { //stop the loop as soon we know the result is invalid
       if(scheme[propertyNames[i]] != typeof object[propertyNames[i]]){ //
